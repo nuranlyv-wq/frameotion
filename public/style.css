@@ -1,0 +1,114 @@
+:root {
+  color-scheme: dark;
+  --bg: #171e22;
+  --card: #283237;
+  --field: #202a2e;
+  --line: #465156;
+  --fg: #e8edeb;
+  --muted: #aeb9b8;
+  --accent: #f58a4c;
+  --accent-ink: #f3e0d4;
+  --selected: #594139;
+  --warn: #ffb18a;
+  --warm-gradient: linear-gradient(110deg, #f58a49, #e8662c);
+  --warm-ink: #202629;
+  --radius: 22px;
+  --font: "Helvetica Neue", Arial, system-ui, sans-serif;
+  --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.5 var(--font); }
+[hidden] { display: none !important; }
+main { max-width: 1240px; margin: 0 auto; padding: 36px 28px 80px; }
+header h1 { margin: 0; }
+h1, h2, h3, p { overflow-wrap: break-word; }
+h1, h2, h3 { line-height: 1.04; }
+a { color: var(--accent); text-underline-offset: .23em; }
+:where(a, button, summary, input, textarea, select, video):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+:where(button, input, textarea, select) { font: inherit; }
+button { cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+.sub { margin: 10px 0 28px; color: var(--muted); }
+.field { display: block; min-width: 0; }
+.field > span { display: block; margin-bottom: 7px; font-size: 13px; font-weight: 600; }
+.field em { margin-left: .25em; color: var(--muted); font-style: normal; font-weight: 400; }
+input:is([type=text], [type=url], [type=search], [type=number]), textarea, select {
+  width: 100%;
+  min-width: 0;
+  padding: 11px 13px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: var(--field);
+  color: var(--fg);
+  font: inherit;
+}
+input::placeholder, textarea::placeholder { color: #a2afad; opacity: 1; }
+input[type=checkbox] { width: 16px; height: 16px; accent-color: var(--accent); }
+textarea { display: block; resize: vertical; }
+select { min-height: 44px; }
+.seg {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  padding: 4px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--field);
+}
+.seg button {
+  flex: 1 1 auto;
+  min-height: 40px;
+  padding: 7px 12px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted);
+}
+.seg button:hover { color: var(--fg); background: var(--card); }
+.seg button.on { background: var(--selected); color: var(--accent-ink); font-weight: 700; }
+.seg button:disabled { opacity: .5; }
+small { display: block; margin-top: 7px; color: var(--muted); font-size: 12px; line-height: 1.45; }
+.styles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.style { text-align: left; padding: 12px; border: 1px solid var(--line); border-radius: 12px; background: var(--field); color: var(--fg); }
+.style.on { border-color: var(--accent); }
+.style b { display: block; font-size: 14px; margin-bottom: 6px; }
+.style .sw { display: flex; gap: 4px; margin-bottom: 8px; }
+.style .sw i { width: 16px; height: 16px; border-radius: 50%; border: 1px solid var(--line); }
+.style p { margin: 0; font-size: 12px; color: var(--muted); line-height: 1.35; }
+.style .tag, .warn { color: var(--warn); }
+.style .tag { font-size: 11px; }
+#customBox { margin-top: 10px; display: grid; gap: 8px; }
+.file { font-size: 13px; color: var(--muted); }
+.file input { display: block; max-width: 100%; margin-top: 6px; color: var(--muted); }
+video { display: block; width: 100%; max-height: 78vh; border-radius: 16px; background: #0b0b0b; }
+details { color: var(--muted); }
+summary { cursor: pointer; }
+pre { white-space: pre-wrap; overflow-wrap: anywhere; font: 12px/1.6 var(--mono); }
+
+.collection main { padding: clamp(24px, 5vw, 62px) max(20px, 3vw) 72px; }
+.collection main > nav, .collection main > .collection-back {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  width: fit-content;
+  margin-bottom: clamp(30px, 5vw, 58px);
+  font: 600 13px/1.5 var(--font);
+}
+.collection main > h1, .collection main > header h1 {
+  max-width: 18ch;
+  margin: 0 0 16px;
+  font-size: clamp(42px, 7vw, 88px);
+  line-height: .97;
+  font-weight: 800;
+  letter-spacing: -.065em;
+}
+.collection .sub { max-width: 64ch; }
+.collection article { background: var(--card); }
+.collection #filters button.on { background: var(--selected); color: var(--accent-ink); }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

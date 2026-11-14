@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Frameotion · Звуки</title><link rel="stylesheet" href="/style.css"><style>
+main{max-width:1140px}nav{display:flex;gap:24px;margin-bottom:38px}h1{letter-spacing:-.04em;font-size:54px;margin:0}#filters{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0}#filters button{border:1px solid var(--line);padding:9px 16px;border-radius:24px;background:var(--card);color:var(--fg);cursor:pointer;font:inherit}#filters button.on{background:var(--accent);color:white}#sounds{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(310px,100%),1fr));gap:14px}article{border:1px solid var(--line);border-radius:16px;padding:20px;background:var(--card);min-width:0}article h2{font-size:17px;overflow-wrap:anywhere;margin:10px 0 18px}article small{font-size:12px;letter-spacing:.06em}audio{width:100%;height:38px}#search{max-width:600px}.meta{color:var(--muted);font-size:13px}#loading{margin:20px 0}
+</style></head><body class="collection"><main>
+<nav><a href="/">← Frameotion</a><a href="/catalog.html">Движения</a><a href="/study.html">Новая постановка</a></nav>
+<h1>Звук в момент движения.</h1><p class="sub">Ваши клики, whoosh, pop и другие акценты. Выберите категорию и послушайте.</p>
+<input id="search" type="text" aria-label="Поиск звука" placeholder="Название звука…"><div id="filters"></div><p id="loading">Загружаю библиотеку…</p><div id="sounds"></div>
+</main><script type="module">
+const labels={all:'Все',click:'Клики',ui:'Интерфейс',pop:'Pop',whoosh:'Whoosh',riser:'Riser',gear:'Механика',data:'Данные',shutter:'Затвор',money:'Деньги'};
+let selected='all';
+try{
+ const response=await fetch('/api/sounds');if(!response.ok)throw Error('Библиотека недоступна');
+ const {sounds}=await response.json();
+ const filters=document.querySelector('#filters');
+ for(const [id,label] of Object.entries(labels)){
+  const count=sounds.filter(s=>id==='all'||s.category===id).length;if(!count)continue;
+  const b=document.createElement('button');b.textContent=`${label} · ${count}`;b.dataset.id=id;b.classList.toggle('on',id===selected);b.onclick=()=>{selected=id;draw();};filters.append(b);
+ }
+ function draw(){
+  for(const b of filters.children)b.classList.toggle('on',b.dataset.id===selected);
+  const q=document.querySelector('#search').value.toLowerCase();
+  const result=sounds.filter(s=>(selected==='all'||s.category===selected)&&s.name.toLowerCase().includes(q));
+  document.querySelector('#loading').textContent=`${result.length} звуков`;
+  document.querySelector('#sounds').replaceChildren(...result.map(s=>{
+   const article=document.createElement('article'),tag=document.createElement('small'),name=document.createElement('h2'),audio=document.createElement('audio'),meta=document.createElement('p');
+   tag.textContent=labels[s.category];name.textContent=s.name;audio.controls=true;audio.preload='none';audio.src='/sound/'+encodeURIComponent(s.id);audio.setAttribute('aria-label',s.name);
+   audio.addEventListener('play',()=>{for(const other of document.querySelectorAll('audio'))if(other!==audio)other.pause();});
+   meta.className='meta';meta.textContent=`${s.duration.toFixed(2)} с · Акцент на ${s.peakAt.toFixed(2)} с`;
+   article.append(tag,name,audio,meta);return article;
+  }));
+ }
+ document.querySelector('#search').oninput=draw;draw();
+}catch(e){document.querySelector('#loading').textContent=e.message;}
+</script></body></html>

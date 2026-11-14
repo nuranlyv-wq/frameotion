@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Frameotion — Vox-студия</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/src/vox-paper/lab.css">
+</head>
+<body>
+  <aside><a class="brand" href="/">Frameotion<span>Vox-студия</span></a><p class="nav-label">Бумажные приёмы</p><nav aria-label="Приёмы работы с бумагой"></nav></aside>
+  <main>
+    <section class="look-panel" aria-labelledby="look-title"><div class="look-heading"><div><p class="look-kicker">Ваш визуальный язык</p><h2 id="look-title">Стиль объяснения</h2></div><a href="/">Все студии ↗</a></div><div id="looks" class="looks" role="group" aria-label="Визуальный стиль Vox"></div><p id="look-description"></p></section>
+    <header><div><p id="family">Материал и движение</p><h1 id="title">Бумага оживает</h1><p id="purpose"></p></div><button id="showcase">Все приёмы</button></header>
+    <section class="viewer" aria-label="Предпросмотр"><canvas id="paper"></canvas></section>
+    <div class="transport"><button id="play">Воспроизвести</button><input id="scrub" aria-label="Положение анимации" type="range" min="0" max="1" step="0.001" value="0"><button id="reverse">Обратный ход</button></div>
+    <p class="note">Перемотка показывает ту же форму листа при каждом возвращении. Выберите приём, чтобы рассмотреть движение отдельно.</p>
+    <p id="status" role="status">Загружаем бумагу и шрифты…</p>
+  </main>
+  <script type="module" src="/src/vox-paper/lab.js"></script>
+</body>
+</html>

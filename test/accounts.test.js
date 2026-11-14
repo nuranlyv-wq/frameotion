@@ -1,0 +1,24 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import {createAccountStore} from '../src/accounts.js';
+test('account sessions, password changes and generation ownership persist',async t=>{
+ const dir=fs.mkdtempSync(path.join(os.tmpdir(),'frameotion-account-'));t.after(()=>fs.rmSync(dir,{recursive:true,force:true}));
+ const store=createAccountStore(dir);
+ const first=await store.register({name:'Алиса',email:'ALICE@example.com',password:'long password 123'});
+ assert.equal(first.user.email,'alice@example.com');
+ assert.equal(store.getUser(first.token).id,first.user.id);
+ await assert.rejects(store.register({name:'Другая',email:'alice@example.com',password:'long password 123'}));
+ await assert.rejects(store.login({email:'alice@example.com',password:'wrong password'}));
+ const second=await store.login({email:'alice@example.com',password:'long password 123'});
+ await store.addGeneration(first.user.id,{id:'run-abc',createdAt:Date.now()},'prompt','Тест');
+ assert.equal(store.owner('run-abc'),first.user.id);
+ await store.updatePassword(first.user.id,'long password 123','new long password 456',first.token);
+ assert.equal(store.getUser(second.token),null);
+ assert.ok(store.getUser(first.token));
+ assert.equal((await store.login({email:'alice@example.com',password:'new long password 456'})).user.id,first.user.id);
+ assert.equal(createAccountStore(dir).listGenerations(first.user.id)[0].id,'run-abc');
+ assert.ok(!fs.readFileSync(path.join(dir,'accounts.json'),'utf8').includes('new long password 456'));
+});

@@ -1,0 +1,21 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Frameotion · Генерация режиссёра</title><link rel="stylesheet" href="/style.css"><style>main{max-width:1180px}h1{font-size:40px;letter-spacing:-.04em}nav{display:flex;gap:24px}video{max-height:none}article{padding:22px;background:var(--card);border:1px solid var(--line);border-radius:14px;margin:18px 0}#facts{display:flex;gap:24px;flex-wrap:wrap}#facts b{font-size:23px}pre{overflow-wrap:anywhere}#play{padding:12px 22px;border-radius:10px;border:0;font:inherit;cursor:pointer}</style></head><body class="collection"><main><nav><a href="/">← Создать видео</a><a href="/sounds.html">Мои звуки</a></nav><h1>Результат AI-режиссёра</h1><p id="status">Читаю результат…</p><video id="film" controls playsinline preload="metadata"></video><button id="play">Смотреть с начала</button><article><div id="facts"></div><p id="origin"></p></article><article><h2>Описание, из которого получился ролик</h2><p id="description"></p><p id="brief"></p></article><details><summary>Проверить происхождение и звуки</summary><pre id="proof"></pre><a id="report" target="_blank">Полный отчёт</a></details></main><script type="module">
+const run=new URLSearchParams(location.search).get('run');
+if(!run||!/^[a-zA-Z0-9][a-zA-Z0-9_-]{0,79}$/.test(run))throw Error('Invalid run');
+const root='/media/'+run+'/';
+async function load(name){const r=await fetch(root+name,{cache:'no-store'});if(!r.ok)throw Error('Генерация ещё выполняется. Обновите страницу позже.');return r.json();}
+try{const [request,report,proof,cost]=await Promise.all([load('request.json'),load('report.json'),load('generation-proof.json').catch(()=>({})),load('cost.json').catch(()=>({calls:0,usd:0}))]);
+ const film=document.querySelector('#film');if(report.video||report.draft)film.src=root+(report.video||report.draft)+'?v='+encodeURIComponent(proof.motionHash||'');else film.hidden=true;document.querySelector('#play').onclick=()=>{film.currentTime=0;film.play();};
+ document.querySelector('#description').textContent=request.description||request.url||'';document.querySelector('#brief').textContent=request.brief;
+ const website=report.modelMode==='website';
+ if(website)document.querySelector('h1').textContent='Сайт в движении';
+ document.querySelector('#status').textContent=report.status==='running'?'Генерация выполняется. Обновите страницу после завершения.':report.status==='needs_review'?'Полный экспорт готов. Техническая проверка пройдена; окончательная оценка — при просмотре.':report.status==='completed'?(website?'Ролик собран из захваченных слоёв сайта.':'Готово. Сценарий, акторы, камера и звуковые акценты созданы моделью.'):'Проверка нашла замечания к композиции. Ролик доступен для просмотра.';
+ for(const [value,label] of [[request.seconds+' с','длительность'],[(report.cost||cost).calls,'вызовов модели'],['$'+(report.cost||cost).usd.toFixed(3),'расход API'],[proof.soundEvents||0,'звуковых событий']]){const span=document.createElement('span'),b=document.createElement('b');b.textContent=value;span.append(b,document.createTextNode(' · '+label));document.querySelector('#facts').append(span);}
+ document.querySelector('#origin').textContent=report.status!=='running'&&proof.modelMode==='anthropic'&&(proof.exactModelOutput||proof.verifiedModelDerivation)&&proof.renderedScoreMatches&&!proof.usesFixedFilmRecipe?(proof.exactModelOutput?'План рендера совпадает с сохранённым ответом модели.':'План проверен по ответу модели и её автоматическим правкам.')+' Готовый фильм-шаблон не использовался.':'Данные происхождения требуют проверки.';
+ if(website&&proof.websiteLayers&&proof.renderedScoreMatches){
+   const origin=document.querySelector('#origin');
+   origin.textContent='Использовано слоёв со страницы: '+proof.websiteLayers.length+'. Движение рассчитано локально.';
+   if(proof.websiteReference){const a=document.createElement('a');a.href=root+proof.websiteReference;a.target='_blank';a.textContent='Исходный захват страницы';origin.after(a);}
+ }
+ document.querySelector('#proof').textContent=JSON.stringify(proof,null,2);document.querySelector('#report').href=root+'report.json';
+}catch(e){document.querySelector('#status').textContent=e.message;}
+</script></body></html>

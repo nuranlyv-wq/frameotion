@@ -1,0 +1,45 @@
+{
+  "name": "Цифровой дневник",
+  "essence": "A lyric-video collage that speaks a love song through the interface grammar of phone and OS: tracker screens, chat bubbles, camera UI and glitching captions, each line set as a different system moment. Hard cuts on the lyric beat swing between paper-white UI calm and near-black voids before closing on a glowing brand mark.",
+  "material_and_look": "Flat off-white UI canvases with tiny monospace subtitles, interrupted by one saturated green tracker field and dark dimmed overlays. Everything reads as screen chrome: rounded bubbles, thin-line icons, small corner handle watermark.",
+  "colour_logic": "Neutral light grey (#e8e8e8) and near-black alternate as the main inversion. A single deep green scene and a system-blue chat bubble act as rare accents, with the final logo carrying the only gradient.",
+  "type_and_layout": "Big tight grotesk lyric lines centred or left-aligned, sometimes with an inline emoji or arrow glyph spliced into the word. Tiny caption text sits bottom-centre, and a persistent small logo plus handle sits upper-right.",
+  "motion_quality": "Mostly still holds with small UI micro-motions such as ring draws, bubble pops, counters ticking and a glow pulse. Datamosh-style glitch scatter breaks up one transition for energy.",
+  "camera_and_transitions": "Hard cuts at roughly 0.8 per second, locked to the lyric phrasing, with occasional light-to-dark inversion and one glitch-smear wipe. The camera stays static apart from a slight punch-in on key words.",
+  "sound": "A soft melancholic pop vocal track drives the edit, with lyric lines landing on downbeats. Light UI clicks, message pops and a soft whoosh into the final logo reveal punctuate it.",
+  "story_shape": "story",
+  "cannot_render": [
+    "phone camera footage of hands",
+    "photographic iPad screenshots and dimmed photo collages",
+    "datamosh glitch of real imagery",
+    "emoji character art"
+  ],
+  "palette": {
+    "bg": "#e8e8e8",
+    "fg": "#0c0c0c",
+    "accent": "#2f6b2f",
+    "accent2": "#1e7cf2",
+    "muted": "#6a6a6a"
+  },
+  "bg": "solid",
+  "typography": {
+    "family": "Inter",
+    "weight": 700
+  },
+  "music": {
+    "mood": "warm",
+    "key": "D"
+  },
+  "suggested_dynamism": "medium",
+  "id": "ref-b",
+  "source": "reference",
+  "status": "draft",
+  "description": "A lyric-video collage that speaks a love song through the interface grammar of phone and OS: tracker screens, chat bubbles, camera UI and glitching captions, each line set as a different system moment. Hard cuts on the lyric beat swing between paper-white UI calm and near-black voids before closing on a glowing brand mark.",
+  "reference": {
+    "cutsPerSec": 0.793,
+    "motionEnergy": 0.0621,
+    "durationSec": 22.7,
+    "suggestedDynamism": "medium",
+    "file": "references/ref-b.mp4"
+  }
+}

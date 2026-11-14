@@ -1,0 +1,42 @@
+{
+  "name": "Ночной неон",
+  "essence": "A flat, graphic, high-contrast language: ultra-heavy condensed uppercase type, often stacked, with one acid accent for highlights and strikethroughs on rejected words; thin white-outlined rounded panels used as cards and signs; dashed guide lines; one soft glow only on the key accent.",
+  "material_and_look": "Flat vector shapes on a dark field, thin outlines, solid fills, no gradients; panels read like interface cards; guide lines and dotted paths connect steps.",
+  "colour_logic": "Near-black field; white for outlines and secondary text; one acid accent reserved for key words, connecting paths and progress dots; a second signal colour only for state (success or error).",
+  "type_and_layout": "Ultra-heavy condensed caps, slightly skewed, often stacked, with strikethrough on rejected words and accent highlights on keywords. Layouts are centred hero words or framed interface cards with tiny labels above big headlines.",
+  "motion_quality": "Smooth continuous drift between steps; typed text reveals letter by letter; paths draw point to point with small dot pops; one occasional burst behind a hero word.",
+  "camera_and_transitions": "Few hard cuts; scenes flow into each other with lateral pans and zooms into panels; one punch-in for the key word.",
+  "sound": "Steady electronic pulse, soft whooshes on pans, typing clicks for typed text, a riser and hit on the burst.",
+  "story_shape": "workflow",
+  "cannot_render": [
+    "filmed-off-a-screen look (draw the screen content full-frame instead)"
+  ],
+  "palette": {
+    "bg": "#16121F",
+    "fg": "#F4F4F0",
+    "accent": "#B8F02A",
+    "accent2": "#2FB86A",
+    "muted": "#6E6880"
+  },
+  "bg": "grid",
+  "typography": {
+    "family": "Montserrat",
+    "weight": 900
+  },
+  "music": {
+    "mood": "tense",
+    "key": "A"
+  },
+  "suggested_dynamism": "medium",
+  "id": "clipsa-1",
+  "source": "reference",
+  "status": "draft",
+  "description": "A flat, graphic, high-contrast language: ultra-heavy condensed uppercase type, often stacked, with one acid accent for highlights and strikethroughs on rejected words; thin white-outlined rounded panels used as cards and signs; dashed guide lines; one soft glow only on the key accent.",
+  "reference": {
+    "cutsPerSec": 0.017,
+    "motionEnergy": 0.0133,
+    "durationSec": 60.1,
+    "suggestedDynamism": "medium",
+    "file": "references/clipsa-1.mp4"
+  }
+}

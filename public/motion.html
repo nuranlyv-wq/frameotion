@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171e22">
+  <title>Frameotion — моушн-видео</title>
+  <link rel="icon" href="/frameotion-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/create.css?v=logo-2">
+  <link rel="stylesheet" href="/studio-navigation.css">
+</head>
+<body>
+  <main>
+    <nav class="studio-navigation" aria-label="Студии Frameotion"><a href="/">← Все студии</a><span>Моушн-видео</span></nav>
+    <section id="create" class="bento" aria-labelledby="title">
+      <div class="intro-card">
+        <div class="hero-meta"><img class="hero-brand-mark" src="/frameotion-mark.svg" alt="" aria-hidden="true"><p class="hero-kicker">FRAMEOTION / МОУШН ДЛЯ ВАШИХ ИДЕЙ</p><a href="/account.html" class="account-link">Аккаунт ↗</a></div>
+        <h1 id="title">Превратите сайт <em>в видео.</em></h1>
+        <p class="intro">Расскажите о продукте — и получите короткий моушн-ролик, который говорит за вас.</p>
+        <a href="#create-form" class="hero-link">Начать создание <span aria-hidden="true">↘</span></a>
+      </div>
+      <div class="motion-card hero-preview">
+        <video class="preview-video" src="/lapa-15s.mp4" poster="/lapa-15s-poster.png" autoplay muted loop playsinline aria-label="Пример моушн-ролика для сервиса Лапа"></video>
+      </div>
+      <form id="create-form" class="panel">
+        <div class="form-heading"><div><p class="form-kicker">ВАША ИДЕЯ — СЛЕДУЮЩАЯ</p><h2>Создайте свой ролик</h2></div><span class="form-mark" aria-hidden="true">↗</span></div>
+        <fieldset class="modes" id="modes">
+          <legend class="sr-only">Способ создания</legend>
+          <label><input type="radio" name="mode" value="url" checked><span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M10 13.5l4-4m-7 6 2-2m6-3 2-2m-6-1 2-2a4 4 0 0 1 6 6l-2 2m-4 3-2 2a4 4 0 0 1-6-6l2-2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>По ссылке</span></label>
+          <label><input type="radio" name="mode" value="prompt"><span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h16v11H9l-5 3V5Zm4 4h8m-8 3h5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>По промпту</span></label>
+        </fieldset>
+        <div id="url-field" class="field">
+          <label for="url">Ссылка на сайт</label>
+          <input id="url" name="url" type="text" inputmode="url" autocomplete="url" maxlength="2048" placeholder="https://example.com" aria-describedby="url-hint" required>
+          <small id="url-hint" class="field-hint">Вставьте адрес главной страницы продукта.</small>
+        </div>
+        <div id="prompt-field" class="field" hidden>
+          <label for="prompt">Описание ролика</label>
+          <textarea id="prompt" name="prompt" rows="5" maxlength="3200" placeholder="Например: покажи, как сервис доставки экономит время владельцам собак" disabled></textarea>
+        </div>
+        <div class="field">
+          <label for="pace">Ритм ролика</label>
+          <select id="pace" name="pace">
+            <option value="dynamic">Динамичный</option>
+            <option value="superdynamic">Супердинамично · быстрые трансформации</option>
+            <option value="calm">Спокойный</option>
+          </select>
+        </div>
+        <p id="error" class="notice" role="alert" hidden></p><a id="login-prompt" class="account-prompt" href="/account.html" hidden>Войти или зарегистрироваться ↗</a>
+        <div class="form-actions">
+          <button id="generate" class="primary" type="submit"><span id="generate-label">Создать видео из ссылки</span> <span aria-hidden="true">↗</span></button>
+        </div>
+      </form>
+    </section>
+    <section id="overview" class="overview" aria-labelledby="overview-title">
+      <div class="overview-heading"><div><p class="eyebrow">ОТ ИДЕИ К ИЗОБРАЖЕНИЮ</p><h2 id="overview-title">История начинается здесь.</h2></div><p>Три простых шага, чтобы рассказать о продукте в движении.</p></div>
+      <div class="overview-grid">
+        <article class="overview-card overview-card-main"><span class="card-number">ИСХОДНЫЕ ДАННЫЕ</span><div class="abstract-link" aria-hidden="true"><i></i><i></i></div><div><h3>Ссылка или идея</h3><p>Добавьте адрес сайта или опишите будущий ролик своими словами.</p></div></article>
+        <article class="overview-card overview-card-silver"><span class="card-number">СОЗДАНИЕ</span><div class="abstract-frames" aria-hidden="true"><i></i><i></i><i></i></div><div><h3>Сюжет и сцены</h3><p>Frameotion собирает историю продукта в моушн-видео.</p></div></article>
+        <article class="overview-card overview-card-result"><span class="card-number">РЕЗУЛЬТАТ</span><div class="abstract-play" aria-hidden="true">↗</div><div><h3>Ваш ролик</h3><p>Посмотрите результат и скачайте видео в формате MP4.</p></div></article>
+      </div>
+    </section>
+    <section id="use-cases" class="use-cases" aria-label="Для каких задач подходит Frameotion">
+      <p class="eyebrow">ОДИН ИНСТРУМЕНТ — РАЗНЫЕ ИСТОРИИ</p>
+      <div><span>Запуск продукта <i>↗</i></span><span>Видео для соцсетей <i>↗</i></span><span>Презентация сервиса <i>↗</i></span></div>
+    </section>
+    <section id="progress" class="bento" aria-labelledby="progress-title" hidden>
+      <div class="intro-card state-intro">
+        <h2 id="progress-title" tabindex="-1">Создаём видео</h2>
+        <p id="stage" class="intro" role="status">Начинаем сборку ролика</p>
+      </div>
+      <div class="motion-card waiting-card" aria-hidden="true">
+        <svg viewBox="0 0 260 200" fill="none">
+          <defs><linearGradient id="waiting-red" x1="47" y1="132" x2="179" y2="26" gradientUnits="userSpaceOnUse"><stop stop-color="#c84b1d"/><stop offset=".55" stop-color="#ed6b2d"/><stop offset="1" stop-color="#ff9b56"/></linearGradient></defs>
+          <rect x="45" y="52" width="135" height="100" rx="27" transform="rotate(-14 45 52)" fill="url(#waiting-red)"/>
+          <rect x="78" y="53" width="139" height="100" rx="27" transform="rotate(12 78 53)" fill="#e1e6e3"/>
+          <g class="waiting-dots" fill="#f47732"><circle cx="114" cy="113" r="7"/><circle cx="139" cy="113" r="7"/><circle cx="164" cy="113" r="7"/></g>
+          <path d="M210 38v20m-10-10h20M46 149v16m-8-8h16" stroke="#f47732" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="panel progress-card">
+        <progress id="progress-bar" aria-label="Готовность ролика" max="100" value="0"></progress>
+        <button id="cancel" class="primary" type="button" hidden>Отменить <span aria-hidden="true">×</span></button>
+      </div>
+    </section>
+    <section id="result" class="bento result" aria-labelledby="result-title" hidden>
+      <div class="intro-card state-intro result-heading">
+        <div>
+          <h2 id="result-title" tabindex="-1">Видео готово</h2>
+          <p id="result-note" class="intro" hidden></p>
+        </div>
+        <svg class="result-mark" viewBox="0 0 100 80" aria-hidden="true">
+          <defs><linearGradient id="result-red" x1="12" y1="64" x2="62" y2="12" gradientUnits="userSpaceOnUse"><stop stop-color="#c84b1d"/><stop offset="1" stop-color="#ff9b56"/></linearGradient></defs>
+          <rect x="10" y="21" width="65" height="48" rx="15" transform="rotate(-13 10 21)" fill="url(#result-red)"/>
+          <rect x="31" y="13" width="61" height="47" rx="15" transform="rotate(12 31 13)" fill="#e1e6e3"/>
+          <path d="m45 39 9 10 16-15" fill="none" stroke="#f47732" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="player-card">
+        <video id="video" controls playsinline preload="auto" aria-label="Ваше видео"></video>
+      </div>
+      <div class="panel result-actions">
+        <a id="download" class="primary" download="frameotion.mp4">Скачать MP4 <span aria-hidden="true">↓</span></a>
+        <button id="new-video" class="secondary" type="button">Создать ещё</button>
+        <button id="edit-video" class="secondary" type="button" hidden>Изменить фрагмент</button>
+      </div>
+      <form id="edit-form" class="panel edit-card" hidden>
+        <label for="edit-instruction">Что изменить в выбранном фрагменте?</label>
+        <textarea id="edit-instruction" maxlength="800" rows="3" required placeholder="Например, раньше показать цену и дольше её удержать"></textarea>
+        <p id="edit-error" class="notice" role="alert" hidden></p>
+        <button class="primary" type="submit">Применить правку</button>
+      </form>
+    </section>
+  </main>
+  <script type="module" src="/create.js"></script>
+</body>
+</html>

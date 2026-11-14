@@ -1,0 +1,41 @@
+<!doctype html><html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0e1012"><title>Frameotion — подкаст-студия</title>
+<link rel="icon" href="data:,"><link rel="stylesheet" href="/src/character-studio/lab.css">
+</head><body>
+<header class="topbar"><a class="brand" href="/" aria-label="Frameotion — подкаст-студия"><svg viewBox="4 0 96 96" fill="none" aria-hidden="true"><g stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 78V24Q20 16 28 16H82"/><path d="M20 49H65"/><path d="M53 78H78Q86 78 86 70V47"/></g></svg><span>Frameotion</span></a><span class="studio-label">Подкаст-студия</span><a class="header-link" href="#workspace">К записи <span aria-hidden="true">↘</span></a></header>
+<main>
+<section class="heading"><div><p class="eyebrow">Frameotion / Голос в кадре</p><h1>Ваш голос.<br><em>Живая история.</em></h1></div><div class="heading-note"><span class="note-mark" aria-hidden="true">↗</span><p>Превратите разговор в подкаст с&nbsp;персонажами, а рассказ — в&nbsp;анимированную историю.</p><span>Одна запись. Ваш визуальный мир.</span></div></section>
+<div id="workspace" class="workspace">
+<aside class="settings" aria-labelledby="settings-title">
+<div class="settings-heading"><h2 id="settings-title">Ваша постановка</h2><span aria-hidden="true">↗</span></div>
+<button id="load" class="upload">Загрузить запись <span>До 100 МБ и 30 минут<br>Аудио обрабатывается локально</span></button><input id="file" type="file" accept="audio/*,.mp3,.wav,.m4a,.ogg,.flac,.aac" hidden>
+<button id="cancel-analysis" class="text-button" hidden>Отменить анализ</button><button id="reanalyse" class="text-button" hidden>Повторить анализ записи</button>
+<p class="field-label">Формат видео</p><div class="segmented" role="group" aria-label="Формат видео"><button data-mode="podcast" aria-pressed="true">Подкаст</button><button data-mode="storytelling" aria-pressed="false">История</button></div>
+<p class="field-label">Визуальный стиль</p><div id="styles" class="styles"></div>
+<div class="scene-options"><div><label class="field-label" for="camera">Камера</label><select id="camera"><option value="auto">Автоматическая</option><option value="wide">Общий план</option><option value="anna">Анна крупнее</option><option value="lev">Лев крупнее</option><option value="mira">Мира крупнее</option></select></div>
+<div><label class="field-label" for="speaker-count">Число голосов</label><select id="speaker-count"><option value="-1">Автоопределение</option><option value="1">Один голос</option><option value="2">Два голоса</option><option value="3">Три голоса</option></select></div></div>
+<p id="audio-note" class="help">Сейчас показан немой этюд с заданными репликами. Он помогает сравнить форму и движения персонажей.</p>
+<button id="demo" class="text-button">Вернуть этюд</button>
+<button id="authored-story" class="authored-button" hidden>Письмо через реку <span>Авторская история · без аудио</span></button>
+</aside>
+<section class="stage-panel" aria-labelledby="style-name">
+<p class="preview-label">В кадре <span>Предпросмотр</span></p>
+<div class="stage-heading"><div><h2 id="style-name">Цветная 2D</h2><p id="style-description"></p></div><span id="source-badge">Этюд без аудио</span></div>
+<div class="viewer"><canvas id="stage" width="1600" height="900" aria-label="Анимированная сцена с персонажами"></canvas></div>
+<div class="transport"><button id="play" class="primary">Смотреть</button><input id="scrub" aria-label="Положение записи" type="range" min="0" max="18" step="0.01" value="0"><output id="time">0:00 / 0:18</output></div>
+<canvas id="wave" width="1400" height="70" aria-label="Звуковая волна"></canvas>
+<p id="status" role="status">Готово к просмотру.</p>
+<p id="story-line" class="story-line" hidden></p>
+</section>
+</div>
+<section class="panel avatar-library" aria-labelledby="avatar-title"><div class="avatar-heading"><div class="panel-title"><h2 id="avatar-title">Образы персонажей</h2><p>Выберите участника и его образ. Голос и реплики сохранятся.</p></div><label for="avatar-slot">Образ для участника<select id="avatar-slot"></select></label></div><div id="avatars" class="avatar-grid"></div></section>
+<section class="bottom-grid">
+<section class="panel"><div class="panel-title"><h2>Участники</h2><p>Имена сохраняются при смене стиля.</p></div><div id="cast" class="cast"></div></section>
+<section class="panel"><div class="panel-title"><h2>Кто говорит</h2><p id="turn-help">Реплики этюда заданы для сравнения стилей.</p></div>
+<form id="turn-form"><label>С <input id="turn-start" type="number" min="0" step="any" value="0" required></label><label>До <input id="turn-end" type="number" min="0" step="any" value="3" required></label><label class="speaker-field">Участник<select id="turn-speaker"><option value="anna">Анна</option><option value="lev">Лев</option><option value="mira">Мира</option></select></label><button type="submit">Назначить</button></form>
+<div id="turns" class="turns"></div></section>
+</section>
+<section id="story-panel" class="panel" hidden><div class="panel-title"><h2 id="story-title">Постановка рассказа</h2><p id="story-summary"></p></div><div id="story-scenes" class="story-scenes"></div><details><summary id="transcript-label">Расшифровка записи</summary><div id="transcript" class="transcript"></div></details></section>
+<p class="footnote" id="mode-note">Голоса и звуки речи анализируются на этом компьютере. Имена персонажей можно изменить.</p>
+</main><audio id="audio" preload="auto"></audio><script type="module" src="/src/character-studio/lab.js"></script>
+</body></html>

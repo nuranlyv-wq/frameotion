@@ -1,0 +1,48 @@
+{
+  "name": "Тёмный оракул",
+  "essence": "A moody, mythic social-handle promo that strings rapid symbolic tableaux (skull, eye coin, evolution, sphinx) across charcoal and burnt-orange fields before collapsing into a centred handle lockup. The grammar is fast cuts between iconic centred emblems under a persistent corner watermark, then a slow, dark, glowing end card.",
+  "material_and_look": "Near-black charcoal fields with heavy vignettes and soft halos, interrupted by one pale grey flash frame and a sunset-orange disc that glows like a moon. Grainy, aged, cinematic texture with a soft inner-glow edge.",
+  "colour_logic": "Charcoal dominates, burnt orange #e87838 is the single warm accent that becomes the sun or portal, and one light-grey inversion frame punctuates the sequence early. The end card shifts the accent into a gradient icon before it resolves to pure white.",
+  "type_and_layout": "Minimal condensed uppercase handle text in white, small in the top-right corner as a persistent watermark, later migrating left and finally centred and enlarged beneath an icon. Visuals are centred emblems, vertical slit panels, and mirrored triangles framing a central figure.",
+  "motion_quality": "Most shots hold almost still with slow drift and halo pulse, while energy comes from cuts at about 2 per second and one glitch-smear transition. The tiny figure leaping across the disc adds the only character motion.",
+  "camera_and_transitions": "Hard cuts, one light/dark inversion flash, a datamosh-style glitch smear, and a slow push into the final lockup. A vertical orange slit opens like a doorway before expanding to full frame.",
+  "sound": "Dark cinematic drone with sub hits on each cut and a swelling riser into the handle reveal. A soft whoosh or impact lands as the icon appears.",
+  "story_shape": "showcase",
+  "cannot_render": [
+    "photographic textures and grain",
+    "x-ray skull illustration",
+    "bronze eye coin render",
+    "evolution sketch artwork",
+    "sphinx and pyramid imagery",
+    "leaping human silhouette",
+    "glitch datamosh of footage"
+  ],
+  "palette": {
+    "bg": "#1c1c1c",
+    "fg": "#f2eef0",
+    "accent": "#e87838",
+    "accent2": "#c13584",
+    "muted": "#4a3a34"
+  },
+  "bg": "rings",
+  "typography": {
+    "family": "Futura",
+    "weight": 800
+  },
+  "music": {
+    "mood": "tense",
+    "key": "D"
+  },
+  "suggested_dynamism": "medium",
+  "id": "ref-a",
+  "source": "reference",
+  "status": "draft",
+  "description": "A moody, mythic social-handle promo that strings rapid symbolic tableaux (skull, eye coin, evolution, sphinx) across charcoal and burnt-orange fields before collapsing into a centred handle lockup. The grammar is fast cuts between iconic centred emblems under a persistent corner watermark, then a slow, dark, glowing end card.",
+  "reference": {
+    "cutsPerSec": 2.041,
+    "motionEnergy": 0.0574,
+    "durationSec": 16.17,
+    "suggestedDynamism": "medium",
+    "file": "references/ref-a.mp4"
+  }
+}

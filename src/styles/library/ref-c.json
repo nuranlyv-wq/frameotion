@@ -1,0 +1,48 @@
+{
+  "name": "Розовая волна",
+  "essence": "A high-key, airy SaaS promo that sweeps through soft pastel desk-scapes and punches into giant hot-magenta type and bold wipes. Short bright scenes, macro type crops and a clean logo end-card give it a premium, playful, fast-cutting rhythm.",
+  "material_and_look": "Bright, near-white surfaces washed in lilac and blush, with soft depth-of-field haze, halftone dot textures and floating paper-like cards and sticky notes. For our engine, use clean light fields with subtle dot texture and layered floating feature cards casting soft shadows.",
+  "colour_logic": "Mostly pale lavender and off-white, with saturated magenta-pink saved for wipes, giant words and the logo, plus violet triangles as secondary accents. A single sky-blue moment adds contrast mid-video before it returns to white and pink.",
+  "type_and_layout": "Heavy geometric sans set huge, often cropped past the frame edges (e.g. 'Rea'), alternating with small UI-style labels and centred headline-plus-subline lockups. Layouts are airy and centred, with chips and pill buttons under short headlines.",
+  "motion_quality": "Energetic but smooth: elements drift and parallax in depth, and cards fly in on eased curves, with quick scale punches on keywords. Momentum is continuous and nothing sits still for long.",
+  "camera_and_transitions": "Fast push-ins and pans give way to diagonal magenta circular wipes, plus hard cuts into macro type crops roughly every 0.7s. The video ends on a calm hold of the centred logo on light grey.",
+  "sound": "An upbeat, bright electronic pop bed with whooshes on every wipe and crisp clicks on UI moments. A soft chime lands on the logo reveal.",
+  "story_shape": "showcase",
+  "cannot_render": [
+    "3D rendered desk scenes and props",
+    "photoreal phone and laptop mockups",
+    "depth-of-field blur on 3D objects",
+    "3D umbrella and folder objects",
+    "sky photography",
+    "hand-drawn sketches and scribbles",
+    "thumbnail imagery of 3D/2D work"
+  ],
+  "palette": {
+    "bg": "#F6F0F7",
+    "fg": "#1E1A24",
+    "accent": "#C8126A",
+    "accent2": "#7B4BE0",
+    "muted": "#6E6378"
+  },
+  "bg": "dots",
+  "typography": {
+    "family": "Inter",
+    "weight": 800
+  },
+  "music": {
+    "mood": "bright",
+    "key": "D"
+  },
+  "suggested_dynamism": "high",
+  "id": "ref-c",
+  "source": "reference",
+  "status": "draft",
+  "description": "A high-key, airy SaaS promo that sweeps through soft pastel desk-scapes and punches into giant hot-magenta type and bold wipes. Short bright scenes, macro type crops and a clean logo end-card give it a premium, playful, fast-cutting rhythm.",
+  "reference": {
+    "cutsPerSec": 1.48,
+    "motionEnergy": 0.0721,
+    "durationSec": 26.34,
+    "suggestedDynamism": "high",
+    "file": "references/ref-c.mov"
+  }
+}

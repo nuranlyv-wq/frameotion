@@ -1,0 +1,42 @@
+{
+  "name": "Неоновый пульт",
+  "essence": "A calm technical-dashboard language: heavy uppercase captions with a single-word highlight bar, hairline frames with corner brackets, tiny monospace labels, ring timers, dot matrices and a persistent timeline strip; elements glow softly in one accent colour.",
+  "material_and_look": "Near-black flat field with hairline UI chrome, small technical labels, bracketed frames and dot grids; emissive accent only on active elements.",
+  "colour_logic": "Near-black with one acid accent for highlight bars and active elements; a warm secondary only for small status marks.",
+  "type_and_layout": "Bold uppercase captions, slightly rotated, set centre-top in two lines with single words boxed in the accent; small technical labels and data panels around the edges like a dashboard grid.",
+  "motion_quality": "Calm and measured: words pop in sequentially with highlight bars wiping on, counters tick, scrubbers slide, small dots light up; little camera movement and long holds.",
+  "camera_and_transitions": "Mostly a locked frame with long holds; an occasional slow push; hard cuts between panels.",
+  "sound": "Sparse tonal pulse, interface ticks, a soft riser into the final call to action.",
+  "story_shape": "claim",
+  "cannot_render": [
+    "filmed-off-a-screen look (draw the screen content full-frame instead)"
+  ],
+  "palette": {
+    "bg": "#0A0A0A",
+    "fg": "#F2F2F2",
+    "accent": "#D4FF3A",
+    "accent2": "#FF7A5C",
+    "muted": "#5A5A50"
+  },
+  "bg": "grid",
+  "typography": {
+    "family": "Montserrat",
+    "weight": 900
+  },
+  "music": {
+    "mood": "tense",
+    "key": "A"
+  },
+  "suggested_dynamism": "calm",
+  "id": "clipsa-2",
+  "source": "reference",
+  "status": "draft",
+  "description": "A calm technical-dashboard language: heavy uppercase captions with a single-word highlight bar, hairline frames with corner brackets, tiny monospace labels, ring timers, dot matrices and a persistent timeline strip; elements glow softly in one accent colour.",
+  "reference": {
+    "cutsPerSec": 0.051,
+    "motionEnergy": 0.0118,
+    "durationSec": 58.8,
+    "suggestedDynamism": "calm",
+    "file": "references/clipsa-2.mp4"
+  }
+}

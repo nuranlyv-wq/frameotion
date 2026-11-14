@@ -1,0 +1,10 @@
+import {spawn} from 'node:child_process';
+import {readdir,mkdir} from 'node:fs/promises';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+const root=fileURLToPath(new URL('../',import.meta.url)),guard=path.join(root,'scripts/offline-network-guard.cjs');
+const args=process.argv.slice(2),files=args.length?args:(await readdir(path.join(root,'test'))).filter(f=>f.endsWith('.test.js')).map(f=>'test/'+f);
+const log=process.env.FRAMEOTION_OFFLINE_LOG??path.join(root,'runs/platform-craft-local-tests-20261113/blocked-network.jsonl');await mkdir(path.dirname(log),{recursive:true});
+const child=spawn(process.execPath,['--test','--test-concurrency=4',...files],{cwd:root,stdio:'inherit',env:{...process.env,FRAMEOTION_OFFLINE_LOG:log,NODE_OPTIONS:[process.env.NODE_OPTIONS,`--require=${guard}`].filter(Boolean).join(' ')}});
+child.once('error',error=>{console.error(error.message);process.exitCode=1;});
+child.once('exit',(code,signal)=>{process.exitCode=code??1;if(signal)console.error('Offline tests interrupted: '+signal);});

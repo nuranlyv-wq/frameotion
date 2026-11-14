@@ -1,0 +1,23 @@
+{
+  "repository": "https://github.com/Yuan-ManX/open-motion",
+  "revision": "1c93d99b064e8674f244a8f24227358ec6f61618",
+  "license": "MIT",
+  "mode": "native-adaptation",
+  "templates": [
+    {
+      "native": "orbit",
+      "source": "open-motion/src/motion/templates/orbit.ts",
+      "purpose": "Орбиты настоящих значков"
+    },
+    {
+      "native": "gallery",
+      "source": "open-motion/src/motion/templates/bentoGridReveal.ts",
+      "purpose": "Бенто с последовательным раскрытием"
+    },
+    {
+      "native": "ken-burns",
+      "source": "open-motion/src/motion/templates/kenBurns.ts",
+      "purpose": "Движение в кадре фотографии"
+    }
+  ]
+}

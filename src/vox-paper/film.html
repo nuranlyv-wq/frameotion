@@ -1,0 +1,12 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="icon" href="data:,"><style>*{box-sizing:border-box}body{margin:0}canvas{display:block;width:100vw;height:100vh}</style></head><body><canvas id="film"></canvas><script type="module">
+import * as THREE from '/azerbaijan-startups-vox/paper-transitions-demo/node_modules/three/build/three.module.js';
+import {createPaperStage} from './stage.js';
+import {loadPaperAssets} from './print.js';
+import {makeFilmPrints} from './film-prints.js';
+const assets=await loadPaperAssets();let score,stage,index=-1;
+window.voxFilm={load(value){score=value;index=-1;},render(t){
+ const i=Math.max(0,score.scenes.findLastIndex(s=>s.start<=t)),s=score.scenes[i];
+ if(index!==i){const prints=makeFilmPrints(s,score.scenes[i+1],assets);if(!stage)stage=createPaperStage({THREE,canvas:document.querySelector('#film'),width:score.width,height:score.height,...prints});else for(const key of Object.keys(prints))stage.updateTexture(key,prints[key]);stage.setAction({technique:s.technique,duration:s.duration});index=i;}
+ stage.render(Math.max(0,Math.min(s.duration,t-s.start)));return document.querySelector('#film').toDataURL('image/png').split(',')[1];
+}};window.__ready=true;
+</script></body></html>

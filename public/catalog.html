@@ -1,0 +1,35 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Frameotion · Каталог движения</title><link rel="stylesheet" href="/style.css"><style>main{max-width:1120px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}article{padding:18px;border:1px solid var(--line);border-radius:16px}article video{max-height:300px;border-radius:8px}.clip video{display:block;width:100%;aspect-ratio:16/9;object-fit:contain;background:#171a25}.clip p{margin:0}h2{font-size:19px}article p{font-size:14px;color:var(--muted)}#references{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}</style></head><body class="collection"><main><a class="collection-back" href="/">← Создать видео</a><header><h1>Движение со смыслом</h1><p class="sub">Короткие примеры, из которых режиссёр собирает историю продукта. Объекты, цвета, размеры и время остаются редактируемыми.</p></header><h2>Короткие 2D-движения</h2><div id="clips-2d" class="grid"></div><h2>Короткие 3D-движения</h2><div id="clips-3d" class="grid"></div><p><a href="https://hyperframes.heygen.com/catalog" target="_blank" rel="noreferrer">Официальный каталог HyperFrames</a></p><h2>Другие движения и переходы</h2><div id="catalog" class="grid"></div><h2>Библиотеки и образцы для адаптации</h2><p>Исходники сохранены в проекте. Эти записи ещё не включены в исполняемый каталог; они служат референсами для выбора движения.</p><input id="search" type="text" placeholder="morph, cursor, camera, zoom…"><p id="count"></p><div id="references"></div></main><script type="module">
+const data = await (await fetch('/api/motion-catalog')).json();
+for (const clip of data.clips || []) {
+ const card = document.createElement('article');
+ card.className = 'clip';
+ if (clip.example) {
+  const video = document.createElement('video');
+  video.src = '/media/' + clip.example;
+  video.poster = video.src.replace('.mp4', '.png');
+  video.controls = true; video.muted = true; video.loop = true; video.preload = 'none'; video.playsInline = true;
+  video.setAttribute('aria-label', clip.title);
+  card.append(video);
+ }
+ const title = document.createElement('h2'), caption = document.createElement('p');
+ title.textContent = clip.title;
+ const duration = new Intl.NumberFormat('ru', { minimumFractionDigits: 1 }).format(clip.seconds);
+ caption.textContent = clip.example ? duration + ' с · превью HyperFrames' : duration + ' с · превью ещё не отрендерено';
+ card.append(title, caption);
+ document.getElementById('clips-' + clip.dimension).append(card);
+}
+for (const recipe of data.recipes || []) {
+ const card=document.createElement('article'),title=document.createElement('h2'),p=document.createElement('p'),link=document.createElement('a'),video=document.createElement('video');
+ title.textContent='Непрерывная постановка';p.textContent='Выделение → портал → постер → лента. Параметризованный режиссёрский образец, 14 секунд.';
+ video.src='/media/kadr-motion-study/video.mp4?v=2';video.poster='/media/kadr-motion-study/poster.png?v=2';video.controls=true;video.preload='none';link.href='/study.html';link.textContent='Смотреть по ключевым моментам';card.append(video,title,p,link);document.querySelector('#catalog').append(card);
+}
+for (const item of [...data.effects, ...data.transitions]) {
+ const card = document.createElement('article'), title = document.createElement('h2'), description = document.createElement('p'), video = document.createElement('video');
+ title.textContent = item.id; description.textContent = item.purpose; video.src = '/media/' + item.example; video.poster = video.src.replace('.mp4', '.png'); video.controls = true; video.muted = true; video.loop = true; video.preload = 'none';
+ card.append(video, title, description); document.querySelector('#catalog').append(card);
+}
+function filter() { const q = document.querySelector('#search').value.toLowerCase(); const results = data.references.filter((x) => (x.title + ' ' + x.tags.join(' ') + ' ' + x.repo).toLowerCase().includes(q));
+ document.querySelector('#count').textContent = `${results.length} образцов`;
+ document.querySelector('#references').replaceChildren(...results.slice(0, 80).map((x) => { const item = document.createElement('article'), a = document.createElement('a'), p = document.createElement('p'); a.href = x.url; a.target = '_blank'; a.rel = 'noreferrer'; a.textContent = x.title; p.textContent = `${x.repo} · ${x.license} · ${x.commit.slice(0, 8)}`; item.append(a, p); return item; })); }
+document.querySelector('#search').oninput = filter; filter();
+</script></body></html>
