@@ -1,40 +1,9 @@
 <!doctype html>
-<html lang="ru">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0e1012">
-  <title>Frameotion — студии видео</title>
-  <link rel="icon" href="/frameotion-mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/home.css">
-</head>
-<body class="home">
-  <header class="home-header hero-meta">
-    <a class="home-brand" href="/" aria-label="Frameotion, главная"><img src="/frameotion-mark.svg" alt="" aria-hidden="true">Frameotion</a>
-    <a class="account-link" href="/connect.html">Подключить MCP ↗</a>
-    <a class="account-link" href="/account.html">Аккаунт ↗</a>
-  </header>
-  <main>
-    <section class="home-intro" aria-labelledby="home-title">
-      <div><p class="eyebrow">FRAMEOTION / ПРОСТРАНСТВО ДЛЯ ИДЕЙ</p><h1 id="home-title">Какую историю<br><em>создадим?</em></h1></div>
-      <p class="home-description">Покажите продукт, оживите разговор<br>или объясните сложное.<br><span>Выберите свою студию.</span></p>
-    </section>
-    <section class="studio-grid" aria-label="Выберите студию">
-      <a class="studio-card studio-motion" href="/motion.html" aria-labelledby="motion-title">
-        <div class="studio-visual"><video src="/lapa-15s.mp4" poster="/lapa-15s-poster.png" autoplay muted loop playsinline preload="metadata" aria-label="Пример моушн-ролика для сервиса Лапа"></video><span class="visual-label">Сайт или идея</span></div>
-        <div class="studio-copy"><p class="studio-kicker">Продукт в движении</p><h2 id="motion-title">Моушн-видео</h2><p class="studio-description">Ролики о продуктах и сервисах. Типографика, трансформации и динамика.</p><span class="studio-action">Создать моушн <i aria-hidden="true">↗</i></span></div>
-      </a>
-      <a class="studio-card studio-podcast" href="/podcast" aria-labelledby="podcast-title">
-        <div class="studio-visual"><img src="/studio-previews/podcast.png" alt="Иллюстрированные участники подкаста за столом" width="960" height="540"><span class="visual-label">Голоса и персонажи</span></div>
-        <div class="studio-copy"><p class="studio-kicker">Ваш голос в кадре</p><h2 id="podcast-title">Подкаст-студия</h2><p class="studio-description">Разговоры и истории с персонажами. Загрузите запись и выберите стиль.</p><span class="studio-action">Открыть студию <i aria-hidden="true">↗</i></span></div>
-      </a>
-      <a class="studio-card studio-vox" href="/vox" aria-labelledby="vox-title">
-        <div class="studio-visual"><img src="/studio-previews/vox-paper.png" alt="Фактурный бумажный лист с текстом" width="960" height="540"><span class="visual-label">Бумага и коллаж</span></div>
-        <div class="studio-copy"><p class="studio-kicker">Смысл обретает форму</p><h2 id="vox-title">Vox-студия</h2><p class="studio-description">Добавьте тему или текст. Режиссёр превратит материал в объясняющее видео.</p><span class="studio-action">Создать Vox-видео <i aria-hidden="true">↗</i></span></div>
-      </a>
-    </section>
-    <footer class="home-footer"><span>Frameotion</span><p>Разные форматы. Ваш почерк.</p></footer>
-  </main>
-  <script type="module" src="/home.js"></script>
-</body>
-</html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Connect your AI · Frameotion</title>
+<style>*{box-sizing:border-box}body{margin:0;background:#0e1012;color:#f5f5f5;font:17px/1.6 system-ui,sans-serif}main{max-width:850px;margin:9vh auto;padding:30px}h1{font-size:clamp(42px,8vw,76px);line-height:1.08;letter-spacing:-.05em}p{color:#b9bdc2}a{color:#ff854f}button,.action{display:inline-block;border:0;border-radius:40px;padding:14px 24px;background:linear-gradient(120deg,#ff7845,#ff5a1f);color:#111;font:inherit;cursor:pointer;text-decoration:none;margin:8px 8px 8px 0}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#191c20;padding:24px;border-radius:24px;font-size:14px}small{color:#aaa}nav{display:flex;justify-content:space-between}button:focus-visible,a:focus-visible{outline:3px solid white;outline-offset:4px}</style>
+<main><nav><a href="/">Frameotion</a><span>Local MCP · Open source</span></nav><h1>Your AI directs.<br>Your machine renders.</h1><p>Connect an MCP client to compose editable scenes, inspect real frames and export MP4. No paid model calls inside the engine.</p>
+<p>Install Node.js 22.12+, Chrome and FFmpeg. In your downloaded project, run:</p><pre>npm ci
+npm start</pre>
+<form id="manual"><label>Project folder (absolute path)<input id="folder" placeholder="/absolute/path/to/frameotion" required style="display:block;width:100%;padding:14px;margin:10px 0;border-radius:16px"></label><label>Node executable<input id="node" value="node" required style="display:block;width:100%;padding:14px;margin:10px 0;border-radius:16px"></label><button>Generate configuration</button></form><p id="status" role="status">Detecting your local installation…</p><a id="cursor" class="action" hidden>Connect Cursor ↗</a><button id="copy" disabled>Copy MCP configuration</button><button id="download" disabled>Download JSON</button><pre id="config">Loading…</pre>
+<p>For Claude Desktop and other clients using <code>mcpServers</code>, merge this entry into your MCP settings, then restart the client. Existing entries should be preserved. Your client asks for permission before enabling tools.</p>
+<small>This connects a local stdio process. It is not a remote connector for browser-only ChatGPT. Your AI client's own model pricing still applies. <a href="https://prod.cursor.com/docs/mcp/install-links">Cursor install-link documentation</a>.</small></main><script type="module" src="/connect.js"></script></html>

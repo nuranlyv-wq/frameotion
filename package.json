@@ -10,13 +10,6 @@
     "mcp:config": "node scripts/frameotion-mcp-config.mjs",
     "test": "node --test test/*.test.js",
     "test:offline": "node scripts/test-offline.mjs",
-    "generate": "node src/cli.js",
-    "demo:motion": "node scripts/motion-demo.mjs",
-    "catalog:render": "node scripts/render-motion-catalog.mjs",
-    "clips:render": "node scripts/render-motion-clips.mjs",
-    "catalog:index": "node scripts/index-motion-sources.mjs",
-    "demo:kinetic": "node scripts/kinetic-study.mjs",
-    "sounds:import": "python3 scripts/import-sounds.py",
     "craft:index": "node scripts/index-frameotion-craft.mjs",
     "craft:prepare": "node scripts/prepare-frameotion-brief.mjs",
     "release:prepare": "node scripts/prepare-public-release.mjs"
